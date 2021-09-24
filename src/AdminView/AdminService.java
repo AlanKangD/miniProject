@@ -1,41 +1,47 @@
-package miniProject;
+package AdminView;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import testview.Controller;
 
 public class AdminService extends ActionEvent {
 
-	
+	static String adminId = "ADmin123";
+	static String adminPw= "PASSword";
 	Parent root;
-	TextField resultId;
-	TextField resultPw;
-	String textId;
-	String textPw;
-	String keyId;
-	String keyPw;
-	int a;
-	int capBtn = 0;
+	TextField resultId, resultPw;
+	String textId, textPw, keyId, keyPw;
+	int a = 1;
+	int capBtn = 0, clickNum = 0, del = 0;
 	int i = 1;
-	int clickNum = 0;
-	int del = 0;
 	
 	public void setSRoot(Parent root) {
 		this.root = root;
 	}
 	
-	public void loginAdmin() { 		
+	public void loginAdmin() { 	
+		System.out.println("입력한 관리자 아이디 : " + textId);
+		System.out.println("입력한 비밀번호 : " + textPw);		
+		
 		if(textId == null || textId.length() <= 0) {
 			alert("ADMIN을 입력하세요!");
 		} else if(textPw == null || textPw.length() <= 0) {
 			alert("Password를 입력하세요!");
+		} else if(textId.equals(adminId)) {
+			if(textPw.equals(adminPw)) {
+				nextScene();  // 여기에 다음 씬 넣어주기 
+			}else {
+				alert("비밀번호가 일치하지 않습니다.");
+			}
 		} else {
-			System.out.println("입력한 관리자 아이디 : " + textId);
-			System.out.println("입력한 비밀번호 : " + textPw);		
+			alert("아이디가 일치하지 않습니다.");
 		}
 	}
 	
@@ -131,4 +137,27 @@ public class AdminService extends ActionEvent {
 		alert.show();
 	}
 	
+	
+	public void nextScene() {
+		
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/testview/eventTest.fxml"));
+		Parent mainRoot = null;
+				try {
+					
+					mainRoot = loader.load(); 
+				} catch (Exception e) {
+					e.printStackTrace();			
+				}
+				
+				Controller ctl = loader.getController();
+				ctl.setRoot(mainRoot);
+				
+				Scene scene = new Scene(mainRoot);
+				Stage s = (Stage)root.getScene().getWindow();
+				s.setScene(scene);   
+				s.show();
+				
+		
+		
+	}
 }

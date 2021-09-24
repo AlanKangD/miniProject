@@ -1,4 +1,4 @@
-package miniProject;
+package AdminView;
 
 import java.net.URL;
 import java.util.ResourceBundle;
