@@ -10,43 +10,40 @@ import javafx.stage.Stage;
 
 public class AdminService extends ActionEvent {
 
+
+	static String adminId = "ADmin123";
+	static String adminPw= "PASSword";
 	Parent root;
-	TextField resultId;
-	TextField resultPw;
-	String textId;
-	String textPw;
-	String keyId;
-	String keyPw;
-	int a;
-	int capBtn = 0;
+	TextField resultId, resultPw;
+	String textId, textPw, keyId, keyPw;
+	int a = 1;
+	int capBtn = 0, clickNum = 0, del = 0;
 	int i = 1;
-	int clickNum = 0;
-	int del = 0;
 	
 	public void setSRoot(Parent root) {
 		this.root = root;
 	}
 	
-	public void loginAdmin() { 		
+	public void loginAdmin() { 	
+		System.out.println("입력한 관리자 아이디 : " + textId);
+		System.out.println("입력한 비밀번호 : " + textPw);		
+		
 		if(textId == null || textId.length() <= 0) {
 			alert("ADMIN을 입력하세요!");
 		} else if(textPw == null || textPw.length() <= 0) {
 			alert("Password를 입력하세요!");
+		} else if(textId.equals(adminId)) {
+			if(textPw.equals(adminPw)) {
+				alert("로그인 성공");
+				// 여기에 다음 씬 넣어주기 
+			}else {
+				alert("비밀번호가 일치하지 않습니다.");
+			}
 		} else {
-			System.out.println("입력한 관리자 아이디 : " + textId);
-			System.out.println("입력한 비밀번호 : " + textPw);		
-			AdminDB db = new AdminDB();
-			db.checkId(textId);
+			alert("아이디가 일치하지 않습니다.");
 		}
 	}
 	
-	public void loginDBCheck(String admin, String pwd) {
-		if(textPw.equals(pwd)) {
-			alert("로그인 성공!");
-		}else {
-			alert("비밀번호가 틀립니다.");
-		}
-	}
 	
 	public void keyboardId() {
 		System.out.println("스크린 아이디 터치 ");
