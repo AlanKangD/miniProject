@@ -11,16 +11,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-<<<<<<< HEAD
-import page1_takeAway.*;
 
-public class Controller implements Initializable {
-	Parent root;
-=======
+//public class Controller implements Initializable {
+//	Parent root;
 
 public class Controller implements Initializable {
 	Parent mainRoot;
->>>>>>> 2e19405ddb4b5253d0f6805438ecbdeafce3cec2
 	
 	String sAmount = null;
 	String sPrice = null;
@@ -60,11 +56,8 @@ public class Controller implements Initializable {
 	DesignService vi;
 
 	public void setRoot(Parent root) {
-<<<<<<< HEAD
-		this.root = root;
-=======
+//		this.root = root;
 		this.mainRoot = root;
->>>>>>> 2e19405ddb4b5253d0f6805438ecbdeafce3cec2
 		
 		fxCancel = (ImageView)root.lookup("#fxCancel");
 		fxPay = (ImageView)root.lookup("#fxPay");
@@ -189,11 +182,6 @@ public class Controller implements Initializable {
 	
 	public void setOnPayClick() {
 		System.out.println("결제 버튼을 클릭했습니다.");
-<<<<<<< HEAD
-		TAMainClass.main(null);
-		
-=======
->>>>>>> 2e19405ddb4b5253d0f6805438ecbdeafce3cec2
 	}
 	public void setOnPayTouch() {
 		fxPay.setImage(new Image("/img/btn/btn_pay_touch.png"));

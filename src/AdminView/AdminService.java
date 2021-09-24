@@ -13,13 +13,8 @@ import testview.Controller;
 
 public class AdminService extends ActionEvent {
 
-<<<<<<< HEAD:src/miniProject/AdminService.java
-	
-=======
-
 	static String adminId = "ADmin123";
 	static String adminPw= "PASSword";
->>>>>>> 2e19405ddb4b5253d0f6805438ecbdeafce3cec2:src/AdminView/AdminService.java
 	Parent root;
 	TextField resultId, resultPw;
 	String textId, textPw, keyId, keyPw;
