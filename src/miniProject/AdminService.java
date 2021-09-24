@@ -10,7 +10,6 @@ import javafx.stage.Stage;
 
 public class AdminService extends ActionEvent {
 
-	
 	Parent root;
 	TextField resultId;
 	TextField resultPw;
