@@ -1,16 +1,21 @@
 package testview;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 import page1_takeAway.*;
 
 public class Controller implements Initializable {
@@ -179,7 +184,22 @@ public class Controller implements Initializable {
 	
 	public void setOnPayClick() {
 		System.out.println("결제 버튼을 클릭했습니다.");
-		TAMainClass.main(null);
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/page1_takeAway/takeAway.fxml"));
+		Parent root;
+		try {
+			root = loader.load();
+			
+			TAController ct1 = loader.getController();
+			ct1.setRoot(root);
+			
+			Scene scene = new Scene(root);
+			Stage s = (Stage)this.root.getScene().getWindow();
+			s.setScene(scene); 
+			s.show();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 		
 	}
 	public void setOnPayTouch() {
