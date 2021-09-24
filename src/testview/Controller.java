@@ -15,14 +15,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-<<<<<<< HEAD
 import javafx.stage.Stage;
 import page1_takeAway.*;
-=======
-
-//public class Controller implements Initializable {
-//	Parent root;
->>>>>>> master
 
 public class Controller implements Initializable {
 	Parent mainRoot;
@@ -191,7 +185,6 @@ public class Controller implements Initializable {
 	
 	public void setOnPayClick() {
 		System.out.println("결제 버튼을 클릭했습니다.");
-<<<<<<< HEAD
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/page1_takeAway/takeAway.fxml"));
 		Parent root;
 		try {
@@ -201,16 +194,12 @@ public class Controller implements Initializable {
 			ct1.setRoot(root);
 			
 			Scene scene = new Scene(root);
-			Stage s = (Stage)this.root.getScene().getWindow();
+			Stage s = (Stage)mainRoot.getScene().getWindow();
 			s.setScene(scene); 
 			s.show();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		
-=======
->>>>>>> master
 	}
 	public void setOnPayTouch() {
 		fxPay.setImage(new Image("/img/btn/btn_pay_touch.png"));
