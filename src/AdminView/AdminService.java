@@ -1,12 +1,15 @@
-package miniProject;
+package AdminView;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import testview.Controller;
 
 public class AdminService extends ActionEvent {
 
@@ -34,8 +37,7 @@ public class AdminService extends ActionEvent {
 			alert("Password를 입력하세요!");
 		} else if(textId.equals(adminId)) {
 			if(textPw.equals(adminPw)) {
-				alert("로그인 성공");
-				// 여기에 다음 씬 넣어주기 
+				nextScene();  // 여기에 다음 씬 넣어주기 
 			}else {
 				alert("비밀번호가 일치하지 않습니다.");
 			}
@@ -43,7 +45,6 @@ public class AdminService extends ActionEvent {
 			alert("아이디가 일치하지 않습니다.");
 		}
 	}
-	
 	
 	public void keyboardId() {
 		System.out.println("스크린 아이디 터치 ");
@@ -137,4 +138,27 @@ public class AdminService extends ActionEvent {
 		alert.show();
 	}
 	
+	
+	public void nextScene() {
+		
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/testview/eventTest.fxml"));
+		Parent mainRoot = null;
+				try {
+					
+					mainRoot = loader.load(); 
+				} catch (Exception e) {
+					e.printStackTrace();			
+				}
+				
+				Controller ctl = loader.getController();
+				ctl.setRoot(mainRoot);
+				
+				Scene scene = new Scene(mainRoot);
+				Stage s = (Stage)root.getScene().getWindow();
+				s.setScene(scene);   
+				s.show();
+				
+		
+		
+	}
 }
