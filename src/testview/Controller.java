@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import page1_takeAway.*;
 
 public class Controller implements Initializable {
 	Parent root;
@@ -178,6 +179,8 @@ public class Controller implements Initializable {
 	
 	public void setOnPayClick() {
 		System.out.println("결제 버튼을 클릭했습니다.");
+		TAMainClass.main(null);
+		
 	}
 	public void setOnPayTouch() {
 		fxPay.setImage(new Image("/img/btn/btn_pay_touch.png"));

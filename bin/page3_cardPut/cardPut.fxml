@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="450.0" prefWidth="542.0" style="-fx-background-color: #FFE400;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="page3_cardPut.CPController">
+   <children>
+      <Label layoutX="258.0" layoutY="71.0" text="를 넣어주세요." textFill="WHITE">
+         <font>
+            <Font name="Yj TEUNTEUN Bold" size="34.0" />
+         </font>
+      </Label>
+      <Label layoutX="37.0" layoutY="71.0" prefHeight="41.0" prefWidth="221.0" style="-fx-background-color: #FF5E00;" text="결제하실 카드" textFill="WHITE">
+         <font>
+            <Font name="Yj TEUNTEUN Bold" size="34.0" />
+         </font>
+      </Label>
+      <Label layoutX="69.0" layoutY="142.0" text="------------------------------------" textFill="WHITE">
+         <font>
+            <Font name="NanumGothic" size="29.0" />
+         </font>
+      </Label>
+      <Label layoutX="69.0" layoutY="207.0" text="------------------------------------" textFill="WHITE">
+         <font>
+            <Font name="NanumGothic" size="29.0" />
+         </font>
+      </Label>
+      <Label layoutX="74.0" layoutY="172.0" text="결제금액 :" textFill="WHITE">
+         <font>
+            <Font name="Yj TEUNTEUN Bold" size="29.0" />
+         </font>
+      </Label>
+      <Label layoutX="271.0" layoutY="172.0" text="8,000원" textFill="WHITE">
+         <font>
+            <Font name="Yj TEUNTEUN Bold" size="29.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="fxCardPut" fitHeight="150.0" fitWidth="200.0" layoutX="74.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="327.0" layoutY="340.0" mnemonicParsing="false" onAction="#clickCP" prefHeight="56.0" prefWidth="112.0" style="-fx-background-color: #ffffff;" text="확 인">
+         <font>
+            <Font name="NanumGothic" size="19.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
