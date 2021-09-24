@@ -1,12 +1,17 @@
-package miniProject;
+package Admin;
+
+import java.io.IOException;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import testview.Controller;
 
 public class AdminService extends ActionEvent {
 
@@ -22,22 +27,46 @@ public class AdminService extends ActionEvent {
 	int i = 1;
 	int clickNum = 0;
 	int del = 0;
-	
+	static  String id ="ADmin123";
+	 static  String pwd="PASSword";
 	public void setSRoot(Parent root) {
 		this.root = root;
 	}
 	
-	public void loginAdmin() { 		
+	public void loginAdmin() { 	
+		System.out.println("입력한 관리자 아이디:"+textId);
+		System.out.println("입력한 비밀번호:"+textPw);
 		if(textId == null || textId.length() <= 0) {
 			alert("ADMIN을 입력하세요!");
 		} else if(textPw == null || textPw.length() <= 0) {
 			alert("Password를 입력하세요!");
-		} else {
-			System.out.println("입력한 관리자 아이디 : " + textId);
-			System.out.println("입력한 비밀번호 : " + textPw);		
+		}else if(textId.equals(id) &&textPw.equals(pwd)){
+					System.out.println("로그인 성공");
+					next();
+		}else {
+			alert("아이디나 비밀번호가 틀립니다");
+			System.out.println("아이디나 비밀번호가 틀립니다");
 		}
 	}
 	
+	public void next() {
+		FXMLLoader loader=new FXMLLoader(getClass().getResource("/testview/eventTest.fxml"));
+		Parent main=null;
+		try {
+			main=loader.load();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		Controller con=loader.getController();
+		con.setRoot(main);
+		
+		Scene scene=new Scene(main);
+		Stage s=(Stage)root.getScene().getWindow();
+		s.setScene(scene);
+		s.show();
+		
+	}
+
 	public void keyboardId() {
 		System.out.println("스크린 아이디 터치 ");
 		a=1;
@@ -114,7 +143,7 @@ public class AdminService extends ActionEvent {
 				}else {
 					resultPw.deleteText((j - 1), j);
 					textPw = resultPw.getText();
-				}			
+				}		
 		}
 	}	
 	
