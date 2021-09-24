@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="960.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="testview.Controller">
+   <children>
+      <ImageView fx:id="fxCancel" fitHeight="60.0" fitWidth="300.0" layoutX="14.0" layoutY="886.0" onMouseClicked="#setOnCancelClick" onMouseEntered="#setOnCancelTouch" onMouseExited="#setOnCancelExit" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="fxPay" fitHeight="60.0" fitWidth="300.0" layoutX="326.0" layoutY="886.0" onMouseClicked="#setOnPayClick" onMouseEntered="#setOnPayTouch" onMouseExited="#setOnPayExit" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="fxCartBackground" fitHeight="165.0" fitWidth="610.0" layoutX="15.0" layoutY="712.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="fxDrink1" fitHeight="100.0" fitWidth="140.0" layoutX="18.0" layoutY="526.0" onMouseClicked="#setOnDrink1Click" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="70.0" layoutY="636.0" text="콜라" textAlignment="CENTER" textFill="#232323">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="56.0" layoutY="667.0" text="1500원" textFill="#c00a01">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Line endX="418.66668701171875" layoutX="203.0" layoutY="504.0" startX="-185.0" stroke="#e4e4e4" strokeWidth="3.0" />
+      <ImageView fx:id="fxWorkout" fitHeight="65.0" fitWidth="100.0" layoutX="525.0" layoutY="14.0" onMouseClicked="#setOnWorkoutClick" onMouseEntered="#setOnWorkoutTouch" onMouseExited="#setOnWorkoutExit" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="lbMenuName1" layoutX="35.0" layoutY="765.0" prefHeight="21.0" prefWidth="270.0" textFill="#232323">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="fxMinus1" layoutX="442.0" layoutY="764.0" mnemonicParsing="false" onAction="#setOnMinus1Click" text="-" />
+      <Button fx:id="fxPlus1" layoutX="527.0" layoutY="764.0" mnemonicParsing="false" onAction="#setOnPlus1Click" text="+" />
+      <Label fx:id="fxAmount1" layoutX="490.0" layoutY="765.0" text="1" textFill="#232323">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="426.0" layoutY="726.0" text="Total : " textFill="#232323">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="fxTotal" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="488.0" layoutY="726.0" prefHeight="21.0" prefWidth="90.0" textFill="#c00a01">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="fxDrink2" fitHeight="100.0" fitWidth="140.0" layoutX="173.0" layoutY="526.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="211.0" layoutY="667.0" text="1500원" textFill="#c00a01">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="fxDrink3" fitHeight="100.0" fitWidth="140.0" layoutX="329.0" layoutY="526.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="367.0" layoutY="667.0" text="1500원" textFill="#c00a01">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="fxDrink4" fitHeight="100.0" fitWidth="140.0" layoutX="484.0" layoutY="526.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="522.0" layoutY="667.0" text="2000원" textFill="#c00a01">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="fxSide1" fitHeight="100.0" fitWidth="140.0" layoutX="18.0" layoutY="321.0" onMouseClicked="#setOnSide1Click" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="34.0" layoutY="431.0" text="프랜치프라이" textAlignment="CENTER" textFill="#232323">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="56.0" layoutY="462.0" text="1500원" textFill="#c00a01">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Line endX="418.66668701171875" layoutX="203.0" layoutY="298.0" startX="-185.0" stroke="#e4e4e4" strokeWidth="3.0" />
+      <ImageView fx:id="fxSide2" fitHeight="100.0" fitWidth="140.0" layoutX="173.0" layoutY="321.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="211.0" layoutY="462.0" text="2000원" textFill="#c00a01">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="fxSide3" fitHeight="100.0" fitWidth="140.0" layoutX="329.0" layoutY="321.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="367.0" layoutY="462.0" text="1500원" textFill="#c00a01">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="fxSide4" fitHeight="100.0" fitWidth="140.0" layoutX="484.0" layoutY="321.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="522.0" layoutY="462.0" text="1500원" textFill="#c00a01">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="fxBurger1" fitHeight="120.0" fitWidth="140.0" layoutX="17.0" layoutY="95.0" onMouseClicked="#setOnBurger1Click" pickOnBounds="true" preserveRatio="true" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="69.0" layoutY="225.0" text="와퍼" textAlignment="CENTER" textFill="#232323">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="55.0" layoutY="256.0" text="6000원" textFill="#c00a01">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="fxBurger2" fitHeight="120.0" fitWidth="140.0" layoutX="172.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="206.0" layoutY="225.0" text="치즈와퍼" textAlignment="CENTER" textFill="#232323">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="210.0" layoutY="256.0" text="6500원" textFill="#c00a01">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="fxBurger3" fitHeight="120.0" fitWidth="140.0" layoutX="328.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="353.0" layoutY="225.0" text="베이컨와퍼" textAlignment="CENTER" textFill="#232323">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="366.0" layoutY="256.0" text="7500원" textFill="#c00a01">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="fxBurger4" fitHeight="120.0" fitWidth="140.0" layoutX="483.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="508.0" layoutY="225.0" text="몬스터와퍼" textAlignment="CENTER" textFill="#232323">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="521.0" layoutY="256.0" text="8500원" textFill="#c00a01">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="fxMenu" fitHeight="65.0" fitWidth="510.0" layoutX="15.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="207.0" layoutY="431.0" text="치킨너겟" textAlignment="CENTER" textFill="#232323">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="363.0" layoutY="431.0" text="치즈스틱" textAlignment="CENTER" textFill="#232323">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="518.0" layoutY="431.0" text="콘샐러드" textAlignment="CENTER" textFill="#232323">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="207.0" layoutY="636.0" text="제로콜라" textAlignment="CENTER" textFill="#232323">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="372.0" layoutY="636.0" text="사이다" textAlignment="CENTER" textFill="#232323">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="509.0" layoutY="636.0" text="오렌지주스" textAlignment="CENTER" textFill="#232323">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbMenuPrice1" alignment="CENTER_RIGHT" layoutX="314.0" layoutY="765.0" prefHeight="21.0" prefWidth="100.0" textFill="#232323">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="581.0" layoutY="726.0" text="원" textFill="#c00a01">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbWon1" layoutX="418.0" layoutY="765.0" text="원" textFill="#232323">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="fxDelete1" layoutX="561.0" layoutY="764.0" mnemonicParsing="false" onAction="#setOnDelete1Click" text="삭제" />
+      <Label fx:id="lbMenuName2" layoutX="35.0" layoutY="798.0" prefHeight="21.0" prefWidth="270.0" textFill="#232323">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="fxMinus2" layoutX="442.0" layoutY="797.0" mnemonicParsing="false" onAction="#setOnMinus2Click" text="-" />
+      <Button fx:id="fxPlus2" layoutX="527.0" layoutY="797.0" mnemonicParsing="false" onAction="#setOnPlus2Click" text="+" />
+      <Label fx:id="fxAmount2" layoutX="490.0" layoutY="798.0" text="1" textFill="#232323">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbMenuPrice2" alignment="CENTER_RIGHT" layoutX="314.0" layoutY="798.0" prefHeight="21.0" prefWidth="100.0" textFill="#232323">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbWon2" layoutX="418.0" layoutY="798.0" text="원" textFill="#232323">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="fxDelete2" layoutX="561.0" layoutY="797.0" mnemonicParsing="false" onAction="#setOnDelete2Click" text="삭제" />
+      <Label fx:id="lbMenuName3" layoutX="35.0" layoutY="831.0" prefHeight="21.0" prefWidth="270.0" textFill="#232323">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="fxMinus3" layoutX="442.0" layoutY="830.0" mnemonicParsing="false" onAction="#setOnMinus3Click" text="-" />
+      <Button fx:id="fxPlus3" layoutX="527.0" layoutY="830.0" mnemonicParsing="false" onAction="#setOnPlus3Click" text="+" />
+      <Label fx:id="fxAmount3" layoutX="490.0" layoutY="831.0" text="1" textFill="#232323">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbMenuPrice3" alignment="CENTER_RIGHT" layoutX="314.0" layoutY="831.0" prefHeight="21.0" prefWidth="100.0" textFill="#232323">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbWon3" layoutX="418.0" layoutY="831.0" text="원" textFill="#232323">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="fxDelete3" layoutX="561.0" layoutY="830.0" mnemonicParsing="false" onAction="#setOnDelete3Click" text="삭제" />
+   </children>
+</AnchorPane>
