@@ -3,6 +3,7 @@ package testview;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 
@@ -21,15 +22,25 @@ import page1_takeAway.*;
 public class Controller implements Initializable {
 	Parent mainRoot;
 	
+	String menu;
 	String sAmount = null;
 	String sPrice = null;
 	String sTotal = null;
-	int amount;
-	int price;
-	int total;
+	int amount1;
+	int price1;
+	int amount2;
+	int price2;
+	int amount3;
+	int price3;
+	int total = 0;
+//	int price = 0;
+//	int amount = 0;
+	int i1 = 0;
+	int i2 = 0;
+	int i3 = 0;
 	
 	HashMap<Integer, String> map = new HashMap<Integer, String>(3);
-	
+	HashMap<Integer, Integer> totalmap = new HashMap<Integer, Integer>(3);
 	/*
 		HashMap으로
 		키 : Menu1 / 값 : 6500
@@ -57,6 +68,8 @@ public class Controller implements Initializable {
 	Label fxTotal;
 	
 	DesignService vi;
+	
+	
 
 	public void setRoot(Parent root) {
 //		this.root = root;
@@ -97,12 +110,17 @@ public class Controller implements Initializable {
 		opacityZero3();
 		
 		
-	
-		
-		amount = 0;
-		price = 0;
-		sAmountFunc(amount);
-		sPriceFunc(price, amount);
+		amount1 = 0;//기존 amount, price 하나씩 있던것을 123으로 나누었습니다.
+		price1 = 0;
+		amount2 = 0;
+		price2 = 0;
+		amount3 = 0;
+		price3 = 0;
+//		sAmountFunc(amount);
+//		sPriceFunc(price, amount);
+		lbMenuPrice1.setUserData(0);
+		lbMenuPrice2.setUserData(0);
+		lbMenuPrice3.setUserData(0);
 		
 		setOnCancelExit();
 		setOnPayExit();
@@ -221,64 +239,134 @@ public class Controller implements Initializable {
 	}
 	
 	
-	public void sAmountFunc(int amount) {
+	public void sAmountFunc1(int amount) {//기존 sAmountFunc를 3개로 늘림
 		sAmount = Integer.toString(amount);
 		fxAmount1.setText(sAmount);
 	}
-	
-	public void sPriceFunc(int price, int amount) {
-		price = amount * price;
-		sPrice = Integer.toString(price);
-		sTotal = sPrice;
-		lbMenuPrice1.setText(sPrice);
-		fxTotal.setText(sTotal);
+	public void sAmountFunc2(int amount) {
+		sAmount = Integer.toString(amount);
+		fxAmount2.setText(sAmount);
+	}
+	public void sAmountFunc3(int amount) {
+		sAmount = Integer.toString(amount);
+		fxAmount3.setText(sAmount);
 	}
 	
+	public void sPriceFunc1(int price, int amount) {//기존 sPriceFunc를 3개로 늘림
+		price = amount * price;
+		lbMenuPrice1.setUserData(price);//total계산하기 위해 추가되었습니다.
+		sPrice = Integer.toString(price);
+		lbMenuPrice1.setText(sPrice);
+	}
+	public void sPriceFunc2(int price, int amount) {
+		price = amount * price;
+		lbMenuPrice2.setUserData(price);
+		sPrice = Integer.toString(price);
+		lbMenuPrice2.setText(sPrice);
+	}
+	public void sPriceFunc3(int price, int amount) {
+		price = amount * price;
+		lbMenuPrice3.setUserData(price);
+		sPrice = Integer.toString(price);
+		lbMenuPrice3.setText(sPrice);
+	}
+	public void sTotalFunc() {//기존 sPiriceFunc에 포함되어있던 sTotal 분리
+		total = (int)lbMenuPrice1.getUserData() + (int)lbMenuPrice2.getUserData() + (int)lbMenuPrice3.getUserData();
+		String stotal = Integer.toString(total);
+		fxTotal.setText(stotal);
+	}
 	
 	public void setOnBurger1Click() {
-		
-		String menu = "와퍼";
+		menu = "와퍼";
 		System.out.println("와퍼를 선택했습니다.");
 		lbMenuName1.setText(menu);
 		lbMenuPrice1.setText("6000");
 		
-		amount = 1;
-		price = 6000;
-		sAmountFunc(amount);
-		sPriceFunc(price, amount);
+		amount1 = 1;
+		price1 = 6000;
+		sAmountFunc1(amount1);
+		sPriceFunc1(price1, amount1);
+		sTotalFunc();
 		
 		opacityMax1();
 		lbFunc1(menu);
+	}
+	public void setOnBurger2Click() {
+		menu = "치즈와퍼";
+		System.out.println("치즈와퍼를 선택했습니다.");
+		lbMenuName1.setText(menu);
+		lbMenuPrice1.setText("6500");
 		
+		amount1 = 1;
+		price1 = 6500;
+		sAmountFunc1(amount1);
+		sPriceFunc1(price1, amount1);
+		sTotalFunc();
+		
+		opacityMax1();
+		lbFunc1(menu);
+	}
+	public void setOnBurger3Click() {
+		menu = "베이컨와퍼";
+		System.out.println("베이컨와퍼를 선택했습니다.");
+		lbMenuName1.setText(menu);
+		lbMenuPrice1.setText("7500");
+		
+		amount1 = 1;
+		price1 = 7500;
+		sAmountFunc1(amount1);
+		sPriceFunc1(price1, amount1);
+		sTotalFunc();
+		
+		opacityMax1();
+		lbFunc1(menu);
+	}
+	public void setOnBurger4Click() {
+		menu = "몬스터와퍼";
+		System.out.println("몬스터와퍼를 선택했습니다.");
+		lbMenuName1.setText(menu);
+		lbMenuPrice1.setText("8500");
+		
+		amount1 = 1;
+		price1 = 8500;
+		sAmountFunc1(amount1);
+		sPriceFunc1(price1, amount1);
+		sTotalFunc();
+		
+		opacityMax1();
+		lbFunc1(menu);
 	}
 	
 	public void setOnMinus1Click() {
 		System.out.println("마이너스 버튼 클릭");
-		if(amount == 1) {
-			amount = 1;
+		if(amount1 == 1) {
+			amount1 = 1;
 		} else {
-			amount--;
+			amount1--;
 		}
-		sAmountFunc(amount);
-		sPriceFunc(price, amount);
+		sAmountFunc1(amount1);
+		sPriceFunc1(price1, amount1);
+		sTotalFunc();
 		
 	}
 	
 	public void setOnPlus1Click() {
 		System.out.println("플러스 버튼 클릭");
-		amount++;
-		sAmountFunc(amount);
-		sPriceFunc(price, amount);
+		amount1++;
+		sAmountFunc1(amount1);
+		sPriceFunc1(price1, amount1);
+		sTotalFunc();
 	}
 	
 	public void setOnDelete1Click() {
 		lbMenuName1.setText("");
 		lbMenuPrice1.setText("");
 		
-		amount = 0;
-		price = 0;
-		sAmountFunc(amount);
-		sPriceFunc(price, amount);
+		amount1 = 0;
+		price1 = 0;
+		sAmountFunc1(amount1);
+		sPriceFunc1(price1, amount1);
+		sTotalFunc();
 		
 		opacityZero1();
 
@@ -286,46 +374,198 @@ public class Controller implements Initializable {
 		System.out.println(map.get(1));
 	}
 	
-	
-	
-	
-	
 	public void setOnMinus2Click() {
 		System.out.println("2 마이너스 버튼 클릭");
+		System.out.println("마이너스 버튼 클릭");
+		if(amount2 == 1) {
+			amount2 = 1;
+		} else {
+			amount2--;
+		}
+		sAmountFunc2(amount2);
+		sPriceFunc2(price2, amount2);
+		sTotalFunc();
+		
 	}
 	
 	public void setOnMinus3Click() {
 		System.out.println("3 마이너스 버튼 클릭");
+		System.out.println("마이너스 버튼 클릭");
+		if(amount3 == 1) {
+			amount3 = 1;
+		} else {
+			amount3--;
+		}
+		sAmountFunc3(amount3);
+		sPriceFunc3(price3, amount3);
+		sTotalFunc();
+		
 	}
 	
 	public void setOnPlus2Click() {
 		System.out.println("2 플러스 버튼 클릭");
+		System.out.println("플러스 버튼 클릭");
+		amount2++;
+		sAmountFunc2(amount2);
+		sPriceFunc2(price2, amount2);
+		sTotalFunc();
 	}
 	
 	public void setOnPlus3Click() {
 		System.out.println("3 플러스 버튼 클릭");
+		System.out.println("플러스 버튼 클릭");
+		amount3++;
+		sAmountFunc3(amount3);
+		sPriceFunc3(price3, amount3);
+		sTotalFunc();
 	}
 	
 	public void setOnDelete2Click() {
 		lbMenuName2.setText("");
+		lbMenuPrice2.setText("");
+		
+		amount2 = 0;
+		price2 = 0;
+		sAmountFunc2(amount2);
+		sPriceFunc2(price2, amount2);
+		sTotalFunc();
+		
 		opacityZero2();
+
+		map.remove(2);
+		System.out.println(map.get(2));
 		System.out.println("2 딜리트 버튼 클릭");
 	}
 	
 	public void setOnDelete3Click() {
 		lbMenuName3.setText("");
+		lbMenuPrice3.setText("");
+		
+		amount3 = 0;
+		price3 = 0;
+		sAmountFunc3(amount3);
+		sPriceFunc3(price3, amount3);
+		sTotalFunc();
+		
 		opacityZero3();
+		map.remove(3);
+		System.out.println(map.get(3));
 		System.out.println("3 딜리트 버튼 클릭");
 	}
 	
 	public void setOnSide1Click() {
-		lbMenuName2.setText("프랜치프라이");
+		menu = "프랜치프라이";
+		lbMenuName2.setText(menu);
+		lbMenuPrice2.setText("1500");
+		
+		amount2 = 1;
+		price2 = 1500;
+		sAmountFunc2(amount2);
+		sPriceFunc2(price2, amount2);
+		sTotalFunc();
+		
 		opacityMax2();
+		lbFunc2(menu);
+	}
+	public void setOnSide2Click() {
+		menu = "치킨너겟";
+		lbMenuName2.setText(menu);
+		lbMenuPrice2.setText("2000");
+		
+		amount2 = 1;
+		price2 = 2000;
+		sAmountFunc2(amount2);
+		sPriceFunc2(price2, amount2);
+		sTotalFunc();
+		
+		opacityMax2();
+		lbFunc2(menu);
+	}
+	public void setOnSide3Click() {
+		menu = "치즈스틱";
+		lbMenuName2.setText(menu);
+		lbMenuPrice2.setText("1500");
+		
+		amount2 = 1;
+		price2 = 1500;
+		sAmountFunc2(amount2);
+		sPriceFunc2(price2, amount2);
+		sTotalFunc();
+		
+		opacityMax2();
+		lbFunc2(menu);
+	}
+	public void setOnSide4Click() {
+		menu = "콘샐러드";
+		lbMenuName2.setText(menu);
+		lbMenuPrice2.setText("1500");
+		
+		amount2 = 1;
+		price2 = 1500;
+		sAmountFunc2(amount2);
+		sPriceFunc2(price2, amount2);
+		sTotalFunc();
+		
+		opacityMax2();
+		lbFunc2(menu);
 	}
 	
+	
 	public void setOnDrink1Click() {
-		lbMenuName3.setText("콜라");
+		menu = "콜라";
+		lbMenuName3.setText(menu);
+		lbMenuPrice3.setText("1500");
+		
+		amount3 = 1;
+		price3 = 1500;
+		sAmountFunc3(amount3);
+		sPriceFunc3(price3, amount3);
+		sTotalFunc();
+		
 		opacityMax3();
+		lbFunc3(menu);
+	}
+	public void setOnDrink2Click() {
+		menu = "제로콜라";
+		lbMenuName3.setText(menu);
+		lbMenuPrice3.setText("1500");
+		
+		amount3 = 1;
+		price3 = 1500;
+		sAmountFunc3(amount3);
+		sPriceFunc3(price3, amount3);
+		sTotalFunc();
+		
+		opacityMax3();
+		lbFunc3(menu);
+	}
+	public void setOnDrink3Click() {
+		menu = "사이다";
+		lbMenuName3.setText(menu);
+		lbMenuPrice3.setText("1500");
+		
+		amount3 = 1;
+		price3 = 1500;
+		sAmountFunc3(amount3);
+		sPriceFunc3(price3, amount3);
+		sTotalFunc();
+		
+		opacityMax3();
+		lbFunc3(menu);
+	}
+	public void setOnDrink4Click() {
+		menu = "오렌지주스";
+		lbMenuName3.setText(menu);
+		lbMenuPrice3.setText("2000");
+		
+		amount3 = 1;
+		price3 = 2000;
+		sAmountFunc3(amount3);
+		sPriceFunc3(price3, amount3);
+		sTotalFunc();
+	
+		opacityMax3();
+		lbFunc3(menu);
 	}
 	
 	public void lbFunc1(String menu) {
