@@ -40,7 +40,6 @@ public class Controller implements Initializable {
 	int i3 = 0;
 	
 	HashMap<Integer, String> map = new HashMap<Integer, String>(3);
-	HashMap<Integer, Integer> totalmap = new HashMap<Integer, Integer>(3);
 	/*
 		HashMap으로
 		키 : Menu1 / 값 : 6500
