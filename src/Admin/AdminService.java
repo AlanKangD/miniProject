@@ -27,30 +27,30 @@ public class AdminService extends ActionEvent {
 	int i = 1;
 	int clickNum = 0;
 	int del = 0;
-	static  String id ="ADmin123";
-	 static  String pwd="PASSword";
+	static  String id ="ADmin123";      //id(고정값)
+	 static  String pwd="PASSword";      //pwd(고정값)
 	public void setSRoot(Parent root) {
 		this.root = root;
 	}
 	
 	public void loginAdmin() { 	
-		System.out.println("입력한 관리자 아이디:"+textId);
+		System.out.println("입력한 관리자 아이디:"+textId);   
 		System.out.println("입력한 비밀번호:"+textPw);
 		if(textId == null || textId.length() <= 0) {
 			alert("ADMIN을 입력하세요!");
 		} else if(textPw == null || textPw.length() <= 0) {
 			alert("Password를 입력하세요!");
 		}else if(textId.equals(id) &&textPw.equals(pwd)){
-					System.out.println("로그인 성공");
-					next();
+					System.out.println("로그인 성공");   //아이디나 비번이 일치할때
+					next();                            //다음 페이지 실행
 		}else {
-			alert("아이디나 비밀번호가 틀립니다");
+			alert("아이디나 비밀번호가 틀립니다");       //아이디나 비번이 틀렸을경우 경고창 출력
 			System.out.println("아이디나 비밀번호가 틀립니다");
 		}
 	}
 	
 	public void next() {
-		FXMLLoader loader=new FXMLLoader(getClass().getResource("/testview/eventTest.fxml"));
+		FXMLLoader loader=new FXMLLoader(getClass().getResource("/testview/eventTest.fxml")); //아이디하고 비번이 일치할 경우 실행
 		Parent main=null;
 		try {
 			main=loader.load();
@@ -89,7 +89,7 @@ public class AdminService extends ActionEvent {
 					cap.setText(i + "");
 				}
 			} else {
-				String [] list = {"","q","w","e","r","t","y","u","i","o","p"};				
+				String [] list = {"","q","w","e","r","t","y","u","i","o","p"}; //해당키보드를 숫자로 변환				
 				Button cap = (Button) root.lookup("#fxId" + i);
 				cap.setText(list[i]);
 			}
@@ -148,7 +148,7 @@ public class AdminService extends ActionEvent {
 	}	
 	
 	public void powerOff() {
-		System.out.println("power off ");
+		System.out.println("power off ");  //로그인창 off
 		Stage s = (Stage)root.getScene().getWindow();
 		s.close();
 	}
