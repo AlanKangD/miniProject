@@ -16,16 +16,16 @@ import testview.Controller;
 public class AdminService extends ActionEvent {
 
 	Parent root;
-	TextField resultId;
-	TextField resultPw;
-	String textId;
-	String textPw;
+	TextField resultId;  //텍스트값 반영 데이터비교시 사용
+	TextField resultPw; //텍스트값 반영  데이터비교시 사용
+	String textId;  
+	String textPw;  
 	String keyId;
 	String keyPw;
 	int a;
-	int capBtn = 0;
+	int capBtn = 0;     //cap값 변환
 	int i = 1;
-	int clickNum = 0;
+	int clickNum = 0;   //숫자값 변환
 	int del = 0;
 	static  String id ="ADmin123";      //id(고정값)
 	 static  String pwd="PASSword";      //pwd(고정값)
@@ -35,13 +35,13 @@ public class AdminService extends ActionEvent {
 	
 	public void loginAdmin() { 	
 		System.out.println("입력한 관리자 아이디:"+textId);   
-		System.out.println("입력한 비밀번호:"+textPw);
-		if(textId == null || textId.length() <= 0) {
+		System.out.println("입력한 비밀번호:"+textPw);       
+		if(textId == null || textId.length() <= 0) { 
 			alert("ADMIN을 입력하세요!");
 		} else if(textPw == null || textPw.length() <= 0) {
 			alert("Password를 입력하세요!");
 		}else if(textId.equals(id) &&textPw.equals(pwd)){
-					System.out.println("로그인 성공");   //아이디나 비번이 일치할때
+					System.out.println("로그인 성공");   //아이디와 비번이 일치할때
 					next();                            //다음 페이지 실행
 		}else {
 			alert("아이디나 비밀번호가 틀립니다");       //아이디나 비번이 틀렸을경우 경고창 출력
@@ -50,7 +50,7 @@ public class AdminService extends ActionEvent {
 	}
 	
 	public void next() {
-		FXMLLoader loader=new FXMLLoader(getClass().getResource("/testview/eventTest.fxml")); //아이디하고 비번이 일치할 경우 실행
+		FXMLLoader loader=new FXMLLoader(getClass().getResource("/testview/eventTest.fxml")); //아이디하고 비번이 일치할 경우 실행됨
 		Parent main=null;
 		try {
 			main=loader.load();
@@ -78,18 +78,18 @@ public class AdminService extends ActionEvent {
 	}
 		
 	public void keyboardNum() {
-		clickNum++;
+		clickNum++;  //키보드 클릭할 경우 반응
 
 		for (i = 1; i <= 10; i++) {
 			if (clickNum == 1 || clickNum % 2 != 0) {
-				Button cap = (Button) root.lookup("#fxId" + i);
+				Button cap = (Button) root.lookup("#fxId" + i); //숫자값 반환
 				if (i == 10) {
 					cap.setText(0 + "");
 				} else {
 					cap.setText(i + "");
 				}
 			} else {
-				String [] list = {"","q","w","e","r","t","y","u","i","o","p"}; //해당키보드를 숫자로 변환				
+				String [] list = {"","q","w","e","r","t","y","u","i","o","p"}; //해당키보드를 문자로 다시 반환				
 				Button cap = (Button) root.lookup("#fxId" + i);
 				cap.setText(list[i]);
 			}
@@ -98,12 +98,12 @@ public class AdminService extends ActionEvent {
 	
 	public void keyboard(ActionEvent event) {
 		if (a == 1) {
-			keyId = ((Button) event.getSource()).getText();
+			keyId = ((Button) event.getSource()).getText();  //id값 텍스트필드에 문자로 반환
 			resultId = ((TextField) root.lookup("#resultId"));
 			textId = resultId.getText() + keyId;
 			resultId.setText(textId);
 		} else {
-			keyPw = ((Button) event.getSource()).getText();
+			keyPw = ((Button) event.getSource()).getText(); //pw값 텍스드필드에 문자로 반환
 			resultPw = ((TextField) root.lookup("#resultPw"));
 			textPw = resultPw.getText() + keyPw;
 			resultPw.setText(textPw);
@@ -111,15 +111,15 @@ public class AdminService extends ActionEvent {
 	}
 	
 	public void keyboardCap() {
-		capBtn++;
+		capBtn++; 
 		if (capBtn == 1 || capBtn % 2 != 0) {
 			for (i = 1; i <= 27; i++) {
-				Button cap = (Button) root.lookup("#fxId" + i);
+				Button cap = (Button) root.lookup("#fxId" + i); //클릭한경우 대문자로 변환
 				cap.setText(cap.getText().toUpperCase());
 			}
 		} else {
 			for (i = 1; i <= 27; i++) {
-				Button cap = (Button) root.lookup("#fxId" + i);
+				Button cap = (Button) root.lookup("#fxId" + i); //소문자 반환
 				cap.setText(cap.getText().toLowerCase());
 			}
 		}
