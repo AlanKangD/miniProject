@@ -17,7 +17,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import page1_takeAway.*;
+import payment1.takeAway.TAController;
 
 public class Controller implements Initializable {
 	Parent mainRoot;
@@ -202,7 +202,7 @@ public class Controller implements Initializable {
 	
 	public void setOnPayClick() {
 		System.out.println("결제 버튼을 클릭했습니다.");
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/page1_takeAway/takeAway.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/payment1/takeAway/takeAway.fxml"));
 		Parent root;
 		try {
 			root = loader.load();
