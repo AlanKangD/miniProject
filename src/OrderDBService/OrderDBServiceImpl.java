@@ -119,8 +119,7 @@ public class OrderDBServiceImpl implements OrderDBService{
 		return result;
 	}
 	public TotalDTO readTotalDTO() {
-		String sql1 = "select * from burger_order";
-		String sql2 = "select sales_code from burger_order";
+		String sql = "select * from burger_order";
 		
 		TotalDTO dto = null;
 		
@@ -139,10 +138,8 @@ public class OrderDBServiceImpl implements OrderDBService{
 		int beverage_4_count = 0;
 		
 		try {
-			ps = OrderDBCommon.con.prepareStatement(sql1);
-			ps2 = OrderDBCommon.con.prepareStatement(sql2);
+			ps = OrderDBCommon.con.prepareStatement(sql);
 			rs = ps.executeQuery();
-			rs2 = ps2.executeQuery();
 				System.out.println("불러오기 시작");
 							
 			while(rs.next()) {
