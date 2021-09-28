@@ -1,6 +1,5 @@
 package Orderdto;
 
-import java.util.Date;
 
 public class BurgerOrderDTO {
 	private int burger_1;

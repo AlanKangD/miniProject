@@ -5,6 +5,8 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 
+import OrderDBService.OrderDBService;
+import OrderDBService.OrderDBServiceImpl;
 import OrderDBcommon.OrderDBCommon;
 import Orderdto.BeverageOrderDTO;
 import Orderdto.BurgerOrderDTO;
@@ -13,8 +15,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -69,12 +73,16 @@ public class Controller implements Initializable {
 	
 	DesignService vi;
 	
-	BurgerOrderDTO Burgerdto;
-	SideOrderDTO Sidedto;
-	BeverageOrderDTO Beveragedto;
+	OrderDBServiceImpl orderdb;
 	
+	BurgerOrderDTO burgerDTO = new BurgerOrderDTO();
+	SideOrderDTO Sidedto = new SideOrderDTO();
+	BeverageOrderDTO Beveragedto = new BeverageOrderDTO();
 	
-
+	public Controller() {
+		orderdb = new OrderDBServiceImpl();
+	}
+	
 	public void setRoot(Parent root) {
 //		this.root = root;
 		this.mainRoot = root;
@@ -207,7 +215,27 @@ public class Controller implements Initializable {
 	
 	
 	public void setOnPayClick() {
+//		orderdb.setRoot(mainRoot);
 		System.out.println("결제 버튼을 클릭했습니다.");
+		try {
+			int result = orderdb.TotalOrderDTO(burgerDTO, Sidedto, Beveragedto);
+			if(result == 1) {
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setContentText("제출 성공!");
+				alert.show();
+			}else {
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setContentText("제출 실패");
+				alert.show();
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+//		orderdb.saveBurgerDTO(Burgerdto);
+//		orderdb.saveSideDTO(Sidedto);
+//		orderdb.saveBeverageDTO(Beveragedto);
 		
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/page1_takeAway/takeAway.fxml"));
 		Parent root;
@@ -293,8 +321,8 @@ public class Controller implements Initializable {
 		amount1 = 1;
 		price1 = 6000;
 		
-		Burgerdto = new BurgerOrderDTO();
-		Burgerdto.setBurger_1(amount1);
+		burgerDTO = new BurgerOrderDTO();
+		burgerDTO.setBurger_1(amount1);
 		
 		sAmountFunc1(amount1);
 		sPriceFunc1(price1, amount1);
@@ -312,8 +340,8 @@ public class Controller implements Initializable {
 		amount1 = 1;
 		price1 = 6500;
 		
-		Burgerdto = new BurgerOrderDTO();
-		Burgerdto.setBurger_2(amount1);
+		burgerDTO = new BurgerOrderDTO();
+		burgerDTO.setBurger_2(amount1);
 		
 		sAmountFunc1(amount1);
 		sPriceFunc1(price1, amount1);
@@ -331,8 +359,8 @@ public class Controller implements Initializable {
 		amount1 = 1;
 		price1 = 7500;
 		
-		Burgerdto = new BurgerOrderDTO();
-		Burgerdto.setBurger_3(amount1);
+		burgerDTO = new BurgerOrderDTO();
+		burgerDTO.setBurger_3(amount1);
 		
 		sAmountFunc1(amount1);
 		sPriceFunc1(price1, amount1);
@@ -350,8 +378,8 @@ public class Controller implements Initializable {
 		amount1 = 1;
 		price1 = 8500;
 		
-		Burgerdto = new BurgerOrderDTO();
-		Burgerdto.setBurger_4(amount1);
+		burgerDTO = new BurgerOrderDTO();
+		burgerDTO.setBurger_4(amount1);
 		
 		sAmountFunc1(amount1);
 		sPriceFunc1(price1, amount1);
@@ -559,6 +587,7 @@ public class Controller implements Initializable {
 		price2 = 1500;
 		
 		Sidedto = new SideOrderDTO();
+		
 		Sidedto.setSide_4(amount2);
 		
 		sAmountFunc2(amount2);
@@ -658,15 +687,15 @@ public class Controller implements Initializable {
 		System.out.println(map.get(3));
 	}
 	
-	public void BurgerCountChange() {
-		if(Burgerdto.getBurger_1() != 0) {
-			Burgerdto.setBurger_1(amount1);
-		}else if(Burgerdto.getBurger_2() != 0){
-			Burgerdto.setBurger_2(amount1);
-		}else if(Burgerdto.getBurger_3() != 0) {
-			Burgerdto.setBurger_3(amount1);
-		}else if(Burgerdto.getBurger_4() != 0) {
-			Burgerdto.setBurger_4(amount1);
+	public void BurgerCountChange() {//플러스마이너스 값을 dto에 넣어서 수정할 수 있게 만들었음
+		if(burgerDTO.getBurger_1() != 0) {
+			burgerDTO.setBurger_1(amount1);
+		}else if(burgerDTO.getBurger_2() != 0){
+			burgerDTO.setBurger_2(amount1);
+		}else if(burgerDTO.getBurger_3() != 0) {
+			burgerDTO.setBurger_3(amount1);
+		}else if(burgerDTO.getBurger_4() != 0) {
+			burgerDTO.setBurger_4(amount1);
 		}
 	}
 	public void SideCountChange() {
