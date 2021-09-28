@@ -1,25 +1,6 @@
-/AdminView/
-/OrderDBService/
-/OrderDBcommon/
-/Orderdto/
-<<<<<<< HEAD
-/dto/
-/img/
-/page1_takeAway/
-/page1_takeAwayDB/
-/page1_takeout/
-/page2_card/
-/page2_cardDB/
-/page3_cardPut/
-/page3_receipt/
-/page4_receipt/
-/page4_receiptDB/
-=======
 /img/
 /payment1/
 /payment2/
 /payment3/
 /payment4/
-/resultDTO/
->>>>>>> master
 /testview/
