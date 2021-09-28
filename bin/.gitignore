@@ -1,32 +1,6 @@
 /img/
-/page1_takeAway/
-/page1_takeout/
-/page2_card/
-/AdminView/
-/OrderDBService/
-<<<<<<< HEAD
-<<<<<<< HEAD
-/OrderDBcommon/
-/img/
 /payment1/
 /payment2/
 /payment3/
 /payment4/
-=======
->>>>>>> soomin
-=======
-/OrderDBcommon/
-/Orderdto/
-/dto/
-/page1_takeAwayDB/
-/page2_cardDB/
-/page3_cardPut/
-/page3_receipt/
-/page4_receipt/
-/page4_receiptDB/
->>>>>>> soomin
 /testview/
-/AdminView/
-/page1_takeout/
-/page3_receipt/
-/page4_receiptDB/
