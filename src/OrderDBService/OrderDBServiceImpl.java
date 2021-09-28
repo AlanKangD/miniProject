@@ -7,12 +7,15 @@ import OrderDBcommon.OrderDBCommon;
 import Orderdto.BeverageOrderDTO;
 import Orderdto.BurgerOrderDTO;
 import Orderdto.SideOrderDTO;
+import Orderdto.TotalDTO;
 import javafx.scene.Parent;
 
 public class OrderDBServiceImpl implements OrderDBService{
 	Parent root;
 	PreparedStatement ps;
+	PreparedStatement ps2;
 	ResultSet rs;
+	ResultSet rs2;
 	BurgerOrderDTO burgerDTO;
 	SideOrderDTO sideDTO;
 	BeverageOrderDTO beverageDTO;
@@ -28,10 +31,20 @@ public class OrderDBServiceImpl implements OrderDBService{
 				+ "side_1, side_2, side_3, side_4, "
 				+ "beverage_1, beverage_2, beverage_3, beverage_4) "
 				+ "values(sales_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+//		String sql2 = 
+//				"select sales_code from burger_order";
+		
+//		int sales_code_count = 0;
 		int result = 0;
 		
 		try {
 			ps = OrderDBCommon.con.prepareStatement(sql);
+//			ps2 = OrderDBCommon.con.prepareStatement(sql2);
+//			rs2 = ps2.executeQuery();
+//			while(rs2.next()) {
+//				sales_code_count = rs2.getInt("sales_code");
+//			}
+//			ps.setInt(1, sales_code_count + 1);
 			ps.setInt(1, burgerDTO.getBurger_1());
 			ps.setInt(2, burgerDTO.getBurger_2());
 			ps.setInt(3, burgerDTO.getBurger_3());
@@ -105,26 +118,56 @@ public class OrderDBServiceImpl implements OrderDBService{
 		}
 		return result;
 	}
-	public BurgerOrderDTO readBurgerDTO() {
-		String sql = "select * from burger_order";
+	public TotalDTO readTotalDTO() {
+		String sql1 = "select * from burger_order";
+		String sql2 = "select sales_code from burger_order";
 		
-		BurgerOrderDTO dto = null;
+		TotalDTO dto = null;
+		
+		int sales_count = 0;
+		int burger_1_count = 0;
+		int burger_2_count = 0;
+		int burger_3_count = 0;
+		int burger_4_count = 0;
+		int side_1_count = 0;
+		int side_2_count = 0;
+		int side_3_count = 0;
+		int side_4_count = 0;
+		int beverage_1_count = 0;
+		int beverage_2_count = 0;
+		int beverage_3_count = 0;
+		int beverage_4_count = 0;
+		
 		try {
-			ps = OrderDBCommon.con.prepareStatement(sql);
+			ps = OrderDBCommon.con.prepareStatement(sql1);
+			ps2 = OrderDBCommon.con.prepareStatement(sql2);
 			rs = ps.executeQuery();
+			rs2 = ps2.executeQuery();
 				System.out.println("불러오기 시작");
+							
 			while(rs.next()) {
-				dto = new BurgerOrderDTO();
-				dto.setBurger_1(rs.getInt("burger_1"));
-				dto.setBurger_2(rs.getInt("burger_2"));
-				dto.setBurger_3(rs.getInt("burger_3"));
-				dto.setBurger_4(rs.getInt("burger_4"));
+				dto = new TotalDTO();
+				dto.setSales_code(sales_count = rs.getInt("sales_code"));
+				dto.setBurger_1(burger_1_count += rs.getInt("burger_1"));
+				dto.setBurger_2(burger_2_count += rs.getInt("burger_2"));
+				dto.setBurger_3(burger_3_count += rs.getInt("burger_3"));
+				dto.setBurger_4(burger_4_count += rs.getInt("burger_4"));
+				dto.setSide_1(side_1_count += rs.getInt("side_1"));
+				dto.setSide_2(side_2_count += rs.getInt("side_2"));
+				dto.setSide_3(side_3_count += rs.getInt("side_3"));
+				dto.setSide_4(side_4_count += rs.getInt("side_4"));
+				dto.setBeverage_1(beverage_1_count += rs.getInt("beverage_1"));
+				dto.setBeverage_2(beverage_2_count += rs.getInt("beverage_2"));
+				dto.setBeverage_3(beverage_3_count += rs.getInt("beverage_3"));
+				dto.setBeverage_4(beverage_4_count += rs.getInt("beverage_4"));
 			}
+			
+			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 		
-		return null;
+		return dto;
 	}
 	
 	

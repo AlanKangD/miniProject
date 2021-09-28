@@ -5,12 +5,14 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 
+import AdminView.AdminController;
 import testview.DesignService;
 import OrderDBService.OrderDBServiceImpl;
 import OrderDBcommon.OrderDBCommon;
 import Orderdto.BeverageOrderDTO;
 import Orderdto.BurgerOrderDTO;
 import Orderdto.SideOrderDTO;
+import Orderdto.TotalDTO;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -305,7 +307,48 @@ public class Controller implements Initializable {
 	
 	public void setOnWorkoutClick() {
 		System.out.println("정산하기 버튼을 클릭했습니다.");
+		TotalDTO dto = orderdb.readTotalDTO();
+		System.out.println("-----------------------");
+		System.out.println("     주문 수 	: " + dto.getSales_code());
+		System.out.println("    와퍼 판매량 	: " + dto.getBurger_1());
+		System.out.println("   치즈와퍼 판매량 	: " + dto.getBurger_2());
+		System.out.println("  베이컨와퍼 판매량	: " + dto.getBurger_3());
+		System.out.println("  몬스터와퍼 판매량 	: " + dto.getBurger_4());
+		System.out.println("  프랜치프라이 판매량 : " + dto.getSide_1());
+		System.out.println("   치킨너겟 판매량 	: " + dto.getSide_2());
+		System.out.println("   치즈스틱 판매량 	: " + dto.getSide_3());
+		System.out.println("   콘샐러드 판매량 	: " + dto.getSide_4());
+		System.out.println("    콜라 판매량	: " + dto.getBeverage_1());
+		System.out.println("   제로콜라 판매량 	: " + dto.getBeverage_2());
+		System.out.println("   사이다 판매량 	: " + dto.getBeverage_3());
+		System.out.println("  오렌지쥬스 판매량 	: " + dto.getBeverage_4());
 		
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/AdminView/adminLoginPage.fxml"));
+		Parent root;
+		try {
+			int result = orderdb.TotalOrderDTO(burgerDTO, Sidedto, Beveragedto);
+			if(result == 1) {
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setContentText("정산 완료!");
+				alert.show();
+			}else {
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setContentText("정산 실패");
+				alert.show();
+			}
+			
+			root = loader.load();
+			
+			AdminController ct1 = loader.getController();
+			ct1.setRoot(root);
+			
+			Scene scene = new Scene(root);
+			Stage s = (Stage)mainRoot.getScene().getWindow();
+			s.setScene(scene); 
+			s.show();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void setOnWorkoutTouch() {
