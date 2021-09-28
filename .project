@@ -14,11 +14,4 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>src/Ordersql/order.sql</name>
-			<type>1</type>
-			<location>C:/Users/82102/Downloads/sqldeveloper-20.4윈도우-x64/sqldeveloper/order.sql</location>
-		</link>
-	</linkedResources>
 </projectDescription>
