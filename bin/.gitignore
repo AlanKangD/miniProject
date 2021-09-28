@@ -1,3 +1,4 @@
+/AdminView/
 /OrderDBService/
 /OrderDBcommon/
 /Orderdto/
@@ -7,7 +8,9 @@
 /page1_takeAwayDB/
 /page1_takeout/
 /page2_card/
+/page2_cardDB/
 /page3_cardPut/
 /page3_receipt/
 /page4_receipt/
+/page4_receiptDB/
 /testview/
