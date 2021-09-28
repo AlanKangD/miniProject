@@ -22,7 +22,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import page1_takeAway.*;
+import payment1.takeAway.TAController;
 
 public class Controller implements Initializable {
 	Parent mainRoot;
@@ -231,13 +231,11 @@ public class Controller implements Initializable {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		
-		
 //		orderdb.saveBurgerDTO(Burgerdto);
 //		orderdb.saveSideDTO(Sidedto);
 //		orderdb.saveBeverageDTO(Beveragedto);
 		
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/page1_takeAway/takeAway.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/payment1/takeAway/takeAway.fxml"));
 		Parent root;
 		try {
 			root = loader.load();

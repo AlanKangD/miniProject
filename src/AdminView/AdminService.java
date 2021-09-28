@@ -13,13 +13,14 @@ import testview.Controller;
 
 public class AdminService extends ActionEvent {
 
-	static String adminId = "ADmin123";
-	static String adminPw= "PASSword";
-	Parent root;
-	TextField resultId, resultPw;
-	String textId, textPw, keyId, keyPw;
-	int a = 1;
-	int capBtn = 0, clickNum = 0, del = 0;
+	static String adminId = "ADmin123";  // 관리자 로그인 아이디 
+	static String adminPw= "PASSword";  // 비밀번호 
+	Parent root;  
+	TextField resultId, resultPw;  // 텍스트필드에 담겨지는 값들을 화면으로 보여줌 (UI화면)
+	String textId, textPw;  //  텍스트필드 값 + 키보드 값  === 데이터 비교 시 사용될 값 
+	String keyId, keyPw; // 키보드 각각의 문자 값 
+	int a = 1;  // 아이디(ADMIN) 텍스트필드 선택 시
+	int capBtn = 0, clickNum = 0; //  클릭 시 대소문자 변경 ,  클릭 시 문자-숫자 변경 
 	int i = 1;
 	
 	public void setSRoot(Parent root) {
@@ -36,7 +37,7 @@ public class AdminService extends ActionEvent {
 			alert("Password를 입력하세요!");
 		} else if(textId.equals(adminId)) {
 			if(textPw.equals(adminPw)) {
-				nextScene();  // 여기에 다음 씬 넣어주기 
+				nextScene();  // 두번째 페이지로 이동  
 			}else {
 				alert("비밀번호가 일치하지 않습니다.");
 			}
@@ -56,30 +57,30 @@ public class AdminService extends ActionEvent {
 	}
 		
 	public void keyboardNum() {
-		clickNum++;
+		clickNum++;   // 클릭할 때마다 숫자&문자 변경 
 
 		for (i = 1; i <= 10; i++) {
 			if (clickNum == 1 || clickNum % 2 != 0) {
-				Button cap = (Button) root.lookup("#fxId" + i);
+				Button num = (Button) root.lookup("#fxId" + i); // Button num = 키보드의 123 버튼
 				if (i == 10) {
-					cap.setText(0 + "");
+					num.setText(0 + "");
 				} else {
-					cap.setText(i + "");
+					num.setText(i + "");
 				}
-			} else {
-				String [] list = {"","q","w","e","r","t","y","u","i","o","p"};				
-				Button cap = (Button) root.lookup("#fxId" + i);
-				cap.setText(list[i]);
+			} else {  
+				String [] list = {"","q","w","e","r","t","y","u","i","o","p"}; //맨 윗줄만 다시 문자로 변경 				
+				Button num = (Button) root.lookup("#fxId" + i);
+				num.setText(list[i]);
 			}
 		}
 	}
 	
 	public void keyboard(ActionEvent event) {
 		if (a == 1) {
-			keyId = ((Button) event.getSource()).getText();
-			resultId = ((TextField) root.lookup("#resultId"));
-			textId = resultId.getText() + keyId;
-			resultId.setText(textId);
+			keyId = ((Button) event.getSource()).getText(); //클릭 시  키보드에 입력되어있는 '값' 가져오기 
+			resultId = ((TextField) root.lookup("#resultId"));  // 텍스트필드에 담겨지는 값들 화면에 보여주기 
+			textId = resultId.getText() + keyId; // 텍스트필드에 담겨있는 값  + 키보드 누르면 추가되는 값 
+			resultId.setText(textId); // 텍스트필드에 (바로)위 데이터를 가져와 보여준다 . 
 		} else {
 			keyPw = ((Button) event.getSource()).getText();
 			resultPw = ((TextField) root.lookup("#resultPw"));
@@ -88,8 +89,8 @@ public class AdminService extends ActionEvent {
 		}   
 	}
 	
-	public void keyboardCap() {
-		capBtn++;
+	public void keyboardCap() {  
+		capBtn++;  // 클릭할 때마다 대소문자로 변경 
 		if (capBtn == 1 || capBtn % 2 != 0) {
 			for (i = 1; i <= 27; i++) {
 				Button cap = (Button) root.lookup("#fxId" + i);
@@ -107,19 +108,19 @@ public class AdminService extends ActionEvent {
 		if (a == 1) {
 			int d = resultId.getLength(); // resultId의 총 길이를 구한 뒤
 			System.out.println(resultId.getLength());
-			if(d <=0) {
+			if(d <=0) {  // 입력된 값이 없을 때 
 				alert("ADMIN을 입력하세요");
 				} else {
-					resultId.deleteText((d - 1), d); // i-1 이상 i 미만 만큼 텍스트를 제거해준다
+					resultId.deleteText((d - 1), d); // d-1 이상 d 미만 텍스트를 제거해준다 
 					textId = resultId.getText();
 			}	
 		} else {
-			int j = resultPw.getLength();
+			int d = resultPw.getLength();
 			System.out.println(resultPw.getLength());
-			if(j <= 0) {
+			if(d<= 0) {
 				alert("PASSWORD를 입력하세요");
 				}else {
-					resultPw.deleteText((j - 1), j);
+					resultPw.deleteText((d- 1), d);
 					textPw = resultPw.getText();
 				}			
 		}
@@ -138,7 +139,7 @@ public class AdminService extends ActionEvent {
 	}
 	
 	
-	public void nextScene() {
+	public void nextScene() {  
 		
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/testview/eventTest.fxml"));
 		Parent mainRoot = null;

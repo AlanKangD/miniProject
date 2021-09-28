@@ -3,7 +3,6 @@ package OrderDBService;
 import Orderdto.BeverageOrderDTO;
 import Orderdto.BurgerOrderDTO;
 import Orderdto.SideOrderDTO;
-import dto.ReceiptDTO;
 import javafx.scene.Parent;
 
 public interface OrderDBService {

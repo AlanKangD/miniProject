@@ -22,35 +22,35 @@ public class AdminController implements Initializable {
 		as.setSRoot(root);
 	}
 
-	public void loginAdmin() {   // LOGIN BUTTON click
+	public void loginAdmin() {   // 로그인 버튼 클릭 -> 관리자 아이디 비번 검증 
 		as.loginAdmin();
 	}
 
-	public void keyboardId() {  // keyboard ADMIN textfield
+	public void keyboardId() {  // 관리자 아이디(ADMIN) 텍스트필드 선택 
 		as.keyboardId();
 	}
 
-	public void keyboardPw() {  // keyboard PASSWORD textfield 
+	public void keyboardPw() {  // 패스워드 텍스트필드 선택 
 		as.keyboardPw();
 	}
  
-	public void keyboardNum() {   //  keyboard 123 button
+	public void keyboardNum() {   //  키보드 맨 윗줄 숫자로 변경 
 		as.keyboardNum();
 }
 
-	public void keyboardCap() {   //  keyboard Caps button
+	public void keyboardCap() {   //  키보드 대문자로 변경 
 		as.keyboardCap();
 	}
 
-	public void keyboard(ActionEvent event) {    // keyboard entire button
+	public void keyboard(ActionEvent event) {   //키보드 클릭 시 값이 텍스트필드에 입력됨 
 		as.keyboard(event);
 	}
 
-	public void deleteLetter() {    // keyboard del button
+	public void deleteLetter() {    // 텍스트필드 값 삭제 del 
 		as.deleteLetter();		
 	}
 
-	public void setPowerOff() {    // shutdown logo 
+	public void setPowerOff() {    //  로고 버튼 클릭 시 프로그램 종료  
 		as.powerOff();
 	}
 

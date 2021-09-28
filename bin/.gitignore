@@ -2,6 +2,7 @@
 /OrderDBService/
 /OrderDBcommon/
 /Orderdto/
+<<<<<<< HEAD
 /dto/
 /img/
 /page1_takeAway/
@@ -13,4 +14,12 @@
 /page3_receipt/
 /page4_receipt/
 /page4_receiptDB/
+=======
+/img/
+/payment1/
+/payment2/
+/payment3/
+/payment4/
+/resultDTO/
+>>>>>>> master
 /testview/
