@@ -7,16 +7,22 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class DesignService {
-	ImageView fxBurger1, fxBurger2, fxBurger3, fxBurger4;
-	ImageView fxSide1, fxSide2, fxSide3, fxSide4;
-	ImageView fxDrink1, fxDrink2, fxDrink3, fxDrink4;
-	ImageView fxMenu;
-	ImageView fxCartBackground;
+	static ImageView fxBurger1;
+	static ImageView fxBurger2;
+	static ImageView fxBurger3;
+	static ImageView fxBurger4;
+	static ImageView fxSide1;
+	static ImageView fxSide2;
+	static ImageView fxSide3;
+	static ImageView fxSide4;
+	static ImageView fxDrink1, fxDrink2, fxDrink3, fxDrink4;
+	static ImageView fxMenu;
+	static ImageView fxCartBackground;
 //	Label lbBurgerName1, lbBurgerName2, lbBurgerName3, lbBurgerName4;
 //	Label lbSideName1, lbSideName2, lbSideName3, lbSideName4;
 //	Label lbDrinkName1, lbDrinkName2, lbDrinkName3, lbDrinkName4;
 	
-	public void setDesignService(Parent root) {
+	public static void setDesignService(Parent root) {
 
 		setDesignControll(root);
 		
@@ -55,7 +61,7 @@ public class DesignService {
 		
 	}
 	
-	public void setDesignControll(Parent root) {
+	public static void setDesignControll(Parent root) {
 		fxBurger1 = (ImageView)root.lookup("#fxBurger1");
 		fxBurger1.setCursor(Cursor.HAND);
 		fxBurger2 = (ImageView)root.lookup("#fxBurger2");
