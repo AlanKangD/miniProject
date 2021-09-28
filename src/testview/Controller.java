@@ -215,11 +215,8 @@ public class Controller implements Initializable {
 	
 	
 	public void setOnPayClick() {
-//		orderdb.setRoot(mainRoot);
 		System.out.println("결제 버튼을 클릭했습니다.");
-<<<<<<< HEAD
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/payment1/takeAway/takeAway.fxml"));
-=======
 		try {
 			int result = orderdb.TotalOrderDTO(burgerDTO, Sidedto, Beveragedto);
 			if(result == 1) {
@@ -235,27 +232,6 @@ public class Controller implements Initializable {
 			e.printStackTrace();
 		}
 		
-		
-//		orderdb.saveBurgerDTO(Burgerdto);
-//		orderdb.saveSideDTO(Sidedto);
-//		orderdb.saveBeverageDTO(Beveragedto);
-		
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/page1_takeAway/takeAway.fxml"));
->>>>>>> soomin
-		Parent root;
-		try {
-			root = loader.load();
-			
-			TAController ct1 = loader.getController();
-			ct1.setRoot(root);
-			
-			Scene scene = new Scene(root);
-			Stage s = (Stage)mainRoot.getScene().getWindow();
-			s.setScene(scene); 
-			s.show();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 	}
 	public void setOnPayTouch() {
 		fxPay.setImage(new Image("/img/btn/btn_pay_touch.png"));
