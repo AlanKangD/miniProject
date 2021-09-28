@@ -205,6 +205,50 @@ public class Controller implements Initializable {
 	
 	public void setOnCancelClick() {
 		System.out.println("취소 버튼을 클릭했습니다.");
+		lbMenuName1.setText("");
+		lbMenuPrice1.setText("");
+		
+		amount1 = 0;
+		price1 = 0;
+		BurgerCountChange();
+		sAmountFunc1(amount1);
+		sPriceFunc1(price1, amount1);
+		sTotalFunc();
+		
+		opacityZero1();
+
+		map.remove(1);
+		
+		lbMenuName2.setText("");
+		lbMenuPrice2.setText("");
+		
+		amount2 = 0;
+		price2 = 0;
+		
+		SideCountChange();
+		
+		sAmountFunc2(amount2);
+		sPriceFunc2(price2, amount2);
+		sTotalFunc();
+		
+		opacityZero2();
+
+		map.remove(2);
+		
+		lbMenuName3.setText("");
+		lbMenuPrice3.setText("");
+		
+		amount3 = 0;
+		price3 = 0;
+		
+		BeverageCountChange();
+		
+		sAmountFunc3(amount3);
+		sPriceFunc3(price3, amount3);
+		sTotalFunc();
+		
+		opacityZero3();
+		map.remove(3);
 	}
 	public void setOnCancelTouch() {
 		fxCancel.setImage(new Image("/img/btn/btn_cancel_touch.png"));
@@ -261,6 +305,7 @@ public class Controller implements Initializable {
 	
 	public void setOnWorkoutClick() {
 		System.out.println("정산하기 버튼을 클릭했습니다.");
+		
 	}
 	
 	public void setOnWorkoutTouch() {
@@ -426,7 +471,6 @@ public class Controller implements Initializable {
 		opacityZero1();
 
 		map.remove(1);
-		System.out.println(map.get(1));
 	}
 	
 	public void setOnMinus2Click() {
@@ -499,7 +543,6 @@ public class Controller implements Initializable {
 		opacityZero2();
 
 		map.remove(2);
-		System.out.println(map.get(2));
 		System.out.println("2 딜리트 버튼 클릭");
 	}
 	
@@ -518,7 +561,6 @@ public class Controller implements Initializable {
 		
 		opacityZero3();
 		map.remove(3);
-		System.out.println(map.get(3));
 		System.out.println("3 딜리트 버튼 클릭");
 	}
 	
