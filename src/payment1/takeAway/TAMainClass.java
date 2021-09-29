@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import testview.Controller;
 
 public class TAMainClass extends Application { // 포장여부 선택 메인클래스
 	@Override

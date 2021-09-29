@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="450.0" prefWidth="542.0" style="-fx-background-color: #FFE400;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="payment3.cardPut.CPController">
+<AnchorPane prefHeight="450.0" prefWidth="542.0" style="-fx-background-color: #FFE400;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="payment3.cardPut.CPController">
    <children>
       <Label layoutX="258.0" layoutY="71.0" text="를 넣어주세요." textFill="WHITE">
          <font>
@@ -34,7 +33,7 @@
             <Font name="Yj TEUNTEUN Bold" size="29.0" />
          </font>
       </Label>
-      <Label layoutX="271.0" layoutY="172.0" text="8,000원" textFill="WHITE">
+      <Label fx:id="fxMoney" layoutX="271.0" layoutY="172.0" text="8,000원" textFill="WHITE">
          <font>
             <Font name="Yj TEUNTEUN Bold" size="29.0" />
          </font>

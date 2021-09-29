@@ -9,7 +9,7 @@ public class OrderDBCommon {
 	public static void setDBConnection() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "java", "1234");
+			con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "dsjin123", "1234");
 			System.out.println("orderDB 연결완료 : " + con);
 		} catch (Exception e) {
 			e.printStackTrace();

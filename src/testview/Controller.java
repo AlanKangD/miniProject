@@ -25,6 +25,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import payment1.takeAway.TAController;
+import resultDTO.ReceiptDTO;
 
 public class Controller implements Initializable {
 	Parent mainRoot;
@@ -39,7 +40,7 @@ public class Controller implements Initializable {
 	int price2;
 	int amount3;
 	int price3;
-	int total = 0;
+	public int total = 0;
 //	int price = 0;
 //	int amount = 0;
 	int i1 = 0;
@@ -80,6 +81,8 @@ public class Controller implements Initializable {
 	BurgerOrderDTO burgerDTO = new BurgerOrderDTO();
 	SideOrderDTO Sidedto = new SideOrderDTO();
 	BeverageOrderDTO Beveragedto = new BeverageOrderDTO();
+	
+	static ReceiptDTO RcptDTO = new ReceiptDTO();
 	
 	public Controller() {
 		orderdb = new OrderDBServiceImpl();
@@ -377,21 +380,25 @@ public class Controller implements Initializable {
 		lbMenuPrice1.setUserData(price);//total계산하기 위해 추가되었습니다.
 		sPrice = Integer.toString(price);
 		lbMenuPrice1.setText(sPrice);
+		RcptDTO.setMenu_1_price(price);
 	}
 	public void sPriceFunc2(int price, int amount) {
 		price = amount * price;
 		lbMenuPrice2.setUserData(price);
 		sPrice = Integer.toString(price);
 		lbMenuPrice2.setText(sPrice);
+		RcptDTO.setMenu_2_price(price);
 	}
 	public void sPriceFunc3(int price, int amount) {
 		price = amount * price;
 		lbMenuPrice3.setUserData(price);
 		sPrice = Integer.toString(price);
 		lbMenuPrice3.setText(sPrice);
+		RcptDTO.setMenu_3_price(price);
 	}
 	public void sTotalFunc() {//기존 sPiriceFunc에 포함되어있던 sTotal 분리
 		total = (int)lbMenuPrice1.getUserData() + (int)lbMenuPrice2.getUserData() + (int)lbMenuPrice3.getUserData();
+		RcptDTO.setTotal(total);
 		String stotal = Integer.toString(total);
 		fxTotal.setText(stotal);
 	}
@@ -409,6 +416,8 @@ public class Controller implements Initializable {
 		
 		burgerDTO = new BurgerOrderDTO();
 		burgerDTO.setBurger_1(amount1);
+		
+		RcptsetMenu_1();
 		
 		sAmountFunc1(amount1);
 		sPriceFunc1(price1, amount1);
@@ -429,6 +438,8 @@ public class Controller implements Initializable {
 		burgerDTO = new BurgerOrderDTO();
 		burgerDTO.setBurger_2(amount1);
 		
+		RcptsetMenu_1();
+		
 		sAmountFunc1(amount1);
 		sPriceFunc1(price1, amount1);
 		sTotalFunc();
@@ -447,6 +458,8 @@ public class Controller implements Initializable {
 		
 		burgerDTO = new BurgerOrderDTO();
 		burgerDTO.setBurger_3(amount1);
+		
+		RcptsetMenu_1();
 		
 		sAmountFunc1(amount1);
 		sPriceFunc1(price1, amount1);
@@ -467,6 +480,8 @@ public class Controller implements Initializable {
 		burgerDTO = new BurgerOrderDTO();
 		burgerDTO.setBurger_4(amount1);
 		
+		RcptsetMenu_1();
+		
 		sAmountFunc1(amount1);
 		sPriceFunc1(price1, amount1);
 		sTotalFunc();
@@ -484,6 +499,7 @@ public class Controller implements Initializable {
 		}
 		
 		BurgerCountChange();
+		RcptDTO.setMenu_1_count(amount1);
 		
 		sAmountFunc1(amount1);
 		sPriceFunc1(price1, amount1);
@@ -494,7 +510,10 @@ public class Controller implements Initializable {
 	public void setOnPlus1Click() {
 		System.out.println("플러스 버튼 클릭");
 		amount1++;
+		
 		BurgerCountChange();
+		RcptDTO.setMenu_1_count(amount1);
+		
 		sAmountFunc1(amount1);
 		sPriceFunc1(price1, amount1);
 		sTotalFunc();
@@ -506,7 +525,10 @@ public class Controller implements Initializable {
 		
 		amount1 = 0;
 		price1 = 0;
+		
 		BurgerCountChange();
+		RcptDTO.setMenu_1_count(amount1);
+		
 		sAmountFunc1(amount1);
 		sPriceFunc1(price1, amount1);
 		sTotalFunc();
@@ -525,6 +547,8 @@ public class Controller implements Initializable {
 			amount2--;
 		}
 		SideCountChange();
+		RcptDTO.setMenu_2_count(amount2);
+		
 		sAmountFunc2(amount2);
 		sPriceFunc2(price2, amount2);
 		sTotalFunc();
@@ -541,6 +565,7 @@ public class Controller implements Initializable {
 		}
 		
 		BeverageCountChange();
+		RcptDTO.setMenu_3_count(amount3);
 		
 		sAmountFunc3(amount3);
 		sPriceFunc3(price3, amount3);
@@ -553,6 +578,8 @@ public class Controller implements Initializable {
 		System.out.println("플러스 버튼 클릭");
 		amount2++;
 		SideCountChange();
+		RcptDTO.setMenu_2_count(amount2);
+		
 		sAmountFunc2(amount2);
 		sPriceFunc2(price2, amount2);
 		sTotalFunc();
@@ -564,6 +591,8 @@ public class Controller implements Initializable {
 		amount3++;
 		
 		BeverageCountChange();
+		
+		RcptDTO.setMenu_3_count(amount3);
 		
 		sAmountFunc3(amount3);
 		sPriceFunc3(price3, amount3);
@@ -578,6 +607,7 @@ public class Controller implements Initializable {
 		price2 = 0;
 		
 		SideCountChange();
+		RcptsetMenu_2();
 		
 		sAmountFunc2(amount2);
 		sPriceFunc2(price2, amount2);
@@ -597,6 +627,7 @@ public class Controller implements Initializable {
 		price3 = 0;
 		
 		BeverageCountChange();
+		RcptDTO.setMenu_3_count(amount3);
 		
 		sAmountFunc3(amount3);
 		sPriceFunc3(price3, amount3);
@@ -618,6 +649,8 @@ public class Controller implements Initializable {
 		Sidedto = new SideOrderDTO();
 		Sidedto.setSide_1(amount2);
 		
+		RcptsetMenu_2();
+		
 		sAmountFunc2(amount2);
 		sPriceFunc2(price2, amount2);
 		sTotalFunc();
@@ -635,6 +668,8 @@ public class Controller implements Initializable {
 		
 		Sidedto = new SideOrderDTO();
 		Sidedto.setSide_2(amount2);
+		
+		RcptsetMenu_2();
 		
 		sAmountFunc2(amount2);
 		sPriceFunc2(price2, amount2);
@@ -654,6 +689,8 @@ public class Controller implements Initializable {
 		Sidedto = new SideOrderDTO();
 		Sidedto.setSide_3(amount2);
 		
+		RcptsetMenu_2();
+		
 		sAmountFunc2(amount2);
 		sPriceFunc2(price2, amount2);
 		sTotalFunc();
@@ -670,8 +707,9 @@ public class Controller implements Initializable {
 		price2 = 1500;
 		
 		Sidedto = new SideOrderDTO();
-		
 		Sidedto.setSide_4(amount2);
+		
+		RcptsetMenu_2();
 		
 		sAmountFunc2(amount2);
 		sPriceFunc2(price2, amount2);
@@ -693,6 +731,8 @@ public class Controller implements Initializable {
 		Beveragedto = new BeverageOrderDTO();
 		Beveragedto.setBeverage_1(amount3);
 		
+		RcptsetMenu_3();
+		
 		sAmountFunc3(amount3);
 		sPriceFunc3(price3, amount3);
 		sTotalFunc();
@@ -710,6 +750,8 @@ public class Controller implements Initializable {
 		
 		Beveragedto = new BeverageOrderDTO();
 		Beveragedto.setBeverage_2(amount3);
+		
+		RcptsetMenu_3();
 		
 		sAmountFunc3(amount3);
 		sPriceFunc3(price3, amount3);
@@ -729,6 +771,8 @@ public class Controller implements Initializable {
 		Beveragedto = new BeverageOrderDTO();
 		Beveragedto.setBeverage_3(amount3);
 		
+		RcptsetMenu_3();
+		
 		sAmountFunc3(amount3);
 		sPriceFunc3(price3, amount3);
 		sTotalFunc();
@@ -746,6 +790,8 @@ public class Controller implements Initializable {
 		
 		Beveragedto = new BeverageOrderDTO();
 		Beveragedto.setBeverage_4(amount3);
+		
+		RcptsetMenu_3();
 		
 		sAmountFunc3(amount3);
 		sPriceFunc3(price3, amount3);
@@ -803,6 +849,17 @@ public class Controller implements Initializable {
 			Beveragedto.setBeverage_4(amount3);
 		}
 	}
+	public void RcptsetMenu_1() {
+		RcptDTO.setMenu_1_name(menu);
+		RcptDTO.setMenu_1_count(amount1);
+	}
+	public void RcptsetMenu_2() {
+		RcptDTO.setMenu_2_name(menu);
+		RcptDTO.setMenu_2_count(amount2);
+	}
+	public void RcptsetMenu_3() {
+		RcptDTO.setMenu_3_name(menu);
+		RcptDTO.setMenu_3_count(amount3);
+	}
 
 }
-

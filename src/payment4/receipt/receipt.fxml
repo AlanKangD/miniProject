@@ -11,7 +11,7 @@
             <Font name="Yj TEUNTEUN Bold" size="40.0" />
          </font>
       </Label>
-      <Label layoutX="227.0" layoutY="148.0" text="주문번호" textFill="RED">
+      <Label layoutX="207.0" layoutY="148.0" text="주문번호" textFill="RED">
          <font>
             <Font name="Yj TEUNTEUN Bold" size="29.0" />
          </font>
@@ -31,42 +31,42 @@
             <Font name="NanumGothic" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="144.0" layoutY="496.0" text="주문메뉴 :">
+      <Label layoutX="143.0" layoutY="456.0" text="주문메뉴 :">
          <font>
             <Font name="NanumGothic" size="22.0" />
          </font>
       </Label>
-      <Label layoutX="118.0" layoutY="541.0" text="결제금액 :">
+      <Label layoutX="119.0" layoutY="564.0" text="결제금액 :">
          <font>
             <Font name="NanumGothic" size="31.0" />
          </font>
       </Label>
-      <Label layoutX="144.0" layoutY="446.0" text="사용카드 :">
+      <Label layoutX="144.0" layoutY="417.0" text="사용카드 :">
          <font>
             <Font name="NanumGothic" size="22.0" />
          </font>
       </Label>
-      <Label layoutX="144.0" layoutY="393.0" text="포장여부 :">
+      <Label layoutX="143.0" layoutY="375.0" text="포장여부 :">
          <font>
             <Font name="NanumGothic" size="22.0" />
          </font>
       </Label>
-      <Label fx:id="fxPacking" layoutX="266.0" layoutY="397.0" text="포장 or 매장">
+      <Label fx:id="fxPacking" layoutX="265.0" layoutY="379.0" text="포장 or 매장">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label fx:id="fxCard" layoutX="266.0" layoutY="447.0" text="○○카드">
+      <Label fx:id="fxCard" layoutX="267.0" layoutY="417.0" text="○○카드">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label fx:id="fxBurger" layoutX="266.0" layoutY="497.0" text="○○버거세트">
+      <Label fx:id="fxBurger" layoutX="263.0" layoutY="457.0" text="○○버거세트">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label fx:id="fxMoney" layoutX="266.0" layoutY="538.0" prefHeight="14.0" prefWidth="209.0" text="10000 원">
+      <Label fx:id="fxMoney" layoutX="267.0" layoutY="561.0" prefHeight="14.0" prefWidth="209.0" text="10000 원">
          <font>
             <Font name="NanumGothic" size="35.0" />
          </font>

@@ -2,8 +2,7 @@ package payment4.receiptDB;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
-import resultDTO.DBCommon;
+import OrderDBcommon.OrderDBCommon;
 import resultDTO.ReceiptDTO;
 
 public class RcDBServiceImpl implements RcDBService{ // 주문번호,가격,주문메뉴,포장여부,카드를
@@ -13,24 +12,22 @@ public class RcDBServiceImpl implements RcDBService{ // 주문번호,가격,주�
 	
 	@Override
 	public ReceiptDTO takeResult() {
-		String sql = "select * from burgerking";
+		String sql = "select sales_code from BURGER_ORDER";
 		ReceiptDTO dto = null;
-//		try {
-//			ps = DBCommon.con.prepareStatement(sql);
-//			rs = ps.executeQuery();
-//			
-//			if(rs.next()) {
-//				dto = new ReceiptDTO();
-//				dto.setOrderNum(rs.getInt("orderNum"));
-//				dto.setMenu(rs.getString("menu"));
-//				dto.setPrice(rs.getInt("price"));
-//				dto.setCard(rs.getInt("card"));
-//				dto.setTakeAway(rs.getInt("takeAway"));
-//			}
-//			
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
+		int sales_count = 0;
+		try {
+			ps = OrderDBCommon.con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				dto = new ReceiptDTO();
+				sales_count = rs.getInt("sales_code");
+				dto.setOrderNum(sales_count);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return dto;
 	}
 	
