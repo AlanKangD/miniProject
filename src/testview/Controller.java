@@ -24,8 +24,8 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import payment1.takeAway.TAController;
 import resultDTO.ReceiptDTO;
+import takeAway.TAController;
 
 public class Controller implements Initializable {
 	Parent mainRoot;
@@ -284,7 +284,7 @@ public class Controller implements Initializable {
 //		orderdb.saveSideDTO(Sidedto);
 //		orderdb.saveBeverageDTO(Beveragedto);
 		
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/payment1/takeAway/takeAway.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/takeAway/takeAway.fxml"));
 		Parent root;
 		try {
 			root = loader.load();
