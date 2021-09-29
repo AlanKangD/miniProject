@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="960.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="receipt.ReceiptController">
+   <children>
+      <Label layoutX="90.0" layoutY="118.0" text="주문이 완료되었습니다!">
+         <font>
+            <Font name="Yj TEUNTEUN Bold" size="40.0" />
+         </font>
+      </Label>
+      <Label layoutX="249.0" layoutY="215.0" text="주문번호" textFill="RED">
+         <font>
+            <Font name="Yj TEUNTEUN Bold" size="29.0" />
+         </font>
+      </Label>
+      <Label fx:id="fxMenuNum" layoutX="270.0" layoutY="250.0" text="001" textFill="RED">
+         <font>
+            <Font name="Yj TEUNTEUN Bold" size="67.0" />
+         </font>
+      </Label>
+      <Label layoutX="225.0" layoutY="345.0" text="신용카드를 뽑은 후 ">
+         <font>
+            <Font name="NanumGothic" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="186.0" layoutY="378.0" text="출력된 영수증을 받아가세요!">
+         <font>
+            <Font name="NanumGothic" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="134.0" layoutY="520.0" text="주문메뉴 :">
+         <font>
+            <Font name="NanumGothic" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="156.0" layoutY="631.0" text="결제금액 :">
+         <font>
+            <Font name="NanumGothic" size="31.0" />
+         </font>
+      </Label>
+      <Label layoutX="135.0" layoutY="481.0" text="사용카드 :">
+         <font>
+            <Font name="NanumGothic" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="134.0" layoutY="439.0" text="포장여부 :">
+         <font>
+            <Font name="NanumGothic" size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="fxPacking" layoutX="256.0" layoutY="443.0" text="포장 or 매장">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="fxCard" layoutX="258.0" layoutY="481.0" text="○○카드">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="fxBurger" layoutX="254.0" layoutY="521.0" text="○○버거세트">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="fxMoney" layoutX="304.0" layoutY="628.0" prefHeight="14.0" prefWidth="209.0" text="10000 원">
+         <font>
+            <Font name="NanumGothic" size="35.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
